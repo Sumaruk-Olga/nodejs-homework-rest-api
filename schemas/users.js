@@ -8,15 +8,23 @@ const register = Joi.object({
     email: Joi.string().pattern(emailRegexp).required(),
     subscription:Joi.string().valid(...subscription),
 });
+
 const login = Joi.object({
     password: Joi.string().min(6).required(),
     email: Joi.string().pattern(emailRegexp).required(),
 });
+
 const subscriprion = Joi.object({
     subscription:Joi.string().valid(...subscription).required(),
 });
+
+const reVerifyReq = Joi.object({
+    email: Joi.string().pattern(emailRegexp).required(),
+})
+
 module.exports = {
     register,
     login,
-    subscriprion
+    subscriprion,
+    reVerifyReq
 }
